@@ -14,14 +14,14 @@ describe('ssr', () => {
     consola.clear().add({ log })
   })
 
-  test('server variables only accessible on server-bundle', async () => {
-    nuxt = await setupNuxt(require('./fixture/configs/ssr'))
+  test('correctly assign env variables from function', async () => {
+    const nuxt = await setupNuxt(require('./fixture/configs/ssr-with-function'))
     const { html } = await nuxt.renderRoute('/')
     expect(html).toMatchSnapshot()
   })
 
-  test('correctly assign env variables from function', async () => {
-    const nuxt = await setupNuxt(require('./fixture/configs/ssr-with-function'))
+  test('server variables only accessible on server-bundle', async () => {
+    nuxt = await setupNuxt(require('./fixture/configs/ssr'))
     const { html } = await nuxt.renderRoute('/')
     expect(html).toMatchSnapshot()
   })
