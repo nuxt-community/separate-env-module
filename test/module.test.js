@@ -1,13 +1,16 @@
 const consola = require('consola')
-
-consola.clear().add({
-  log: jest.fn()
-})
-
 const { Nuxt, Builder } = require('nuxt-edge')
+
 const timeout = 60 * 1000
 
 describe('ssr', () => {
+  let log
+
+  beforeEach(() => {
+    log = jest.fn()
+    consola.clear().add({ log })
+  })
+
   test('server variables only accessible on server-bundle', async () => {
     const nuxt = await setupNuxt(require('./fixture/configs/ssr'))
     const { html } = await nuxt.renderRoute('/')
@@ -31,7 +34,7 @@ describe('ssr', () => {
 
   test('error when no object is provided', async () => {
     const nuxt = await setupNuxt(require('./fixture/configs/no-object'))
-    expect(consola.error).toHaveBeenCalledTimes(1)
+    expect(log).toHaveBeenCalledTimes(1)
     await nuxt.close()
   }, timeout)
 })
