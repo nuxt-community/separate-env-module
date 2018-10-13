@@ -48,6 +48,9 @@
   "jest": {
     "testEnvironment": "node",
     "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/lib/**"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/test/fixture"
@@ -71,6 +74,7 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^5.0.0-beta.3",
+    "get-port": "^4.0.0",
     "husky": "^1.0.0-rc.1",
     "jest": "latest",
     "jsdom": "latest",
