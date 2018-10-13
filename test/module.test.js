@@ -1,3 +1,9 @@
+const consola = require('consola')
+
+consola.clear().add({
+  log: jest.fn()
+})
+
 const { Nuxt, Builder } = require('nuxt-edge')
 const timeout = 60 * 1000
 
@@ -23,13 +29,11 @@ describe('ssr', () => {
     await nuxt.close()
   }, timeout)
 
-  /*
   test('error when no object is provided', async () => {
     const nuxt = await setupNuxt(require('./fixture/configs/no-object'))
     expect(consola.error).toHaveBeenCalledTimes(1)
     await nuxt.close()
   }, timeout)
-  */
 })
 
 describe('csr', () => {
