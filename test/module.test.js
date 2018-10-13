@@ -33,9 +33,10 @@ describe('ssr', () => {
   }, timeout)
 
   test('error when no object is provided', async () => {
-    const nuxt = await setupNuxt(require('./fixture/configs/no-object'))
-    expect(log).toHaveBeenCalledTimes(1)
-    await nuxt.close()
+    nuxt = await setupNuxt(require('./fixture/configs/no-object'))
+    const expectedMessage = 'Could not assign server env variables. Please provide an object or a function that returns an object!'
+    const consolaMessages = log.mock.calls.map(c => c[0].message)
+    expect(consolaMessages).toContain(expectedMessage)
   }, timeout)
 })
 
