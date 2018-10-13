@@ -3,6 +3,8 @@ const { Nuxt, Builder } = require('nuxt-edge')
 
 const timeout = 60 * 1000
 
+let nuxt
+
 describe('ssr', () => {
   let log
 
@@ -12,10 +14,9 @@ describe('ssr', () => {
   })
 
   test('server variables only accessible on server-bundle', async () => {
-    const nuxt = await setupNuxt(require('./fixture/configs/ssr'))
+    nuxt = await setupNuxt(require('./fixture/configs/ssr'))
     const { html } = await nuxt.renderRoute('/')
     expect(html).toMatchSnapshot()
-    await nuxt.close()
   }, timeout)
 
   test('correctly assign env variables from function', async () => {
@@ -26,10 +27,9 @@ describe('ssr', () => {
   }, timeout)
 
   test('honor custom build.extend function', async () => {
-    const nuxt = await setupNuxt(require('./fixture/configs/ssr-with-extend'))
+    nuxt = await setupNuxt(require('./fixture/configs/ssr-with-extend'))
     const { html } = await nuxt.renderRoute('/')
     expect(html).toMatchSnapshot()
-    await nuxt.close()
   }, timeout)
 
   test('error when no object is provided', async () => {
@@ -42,11 +42,14 @@ describe('ssr', () => {
 
 describe('csr', () => {
   test('only client-side variables are available', async () => {
-    const nuxt = await setupNuxt(require('./fixture/configs/csr'))
+    nuxt = await setupNuxt(require('./fixture/configs/csr'))
     const { html } = await renderSpaRoute(nuxt, '/')
     expect(html).toMatchSnapshot()
-    await nuxt.close()
   }, timeout)
+})
+
+afterEach(async () => {
+  await nuxt.close()
 })
 
 const setupNuxt = async (config) => {
