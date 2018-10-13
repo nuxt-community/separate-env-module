@@ -55,7 +55,7 @@
     "forceExit": true
   },
   "dependencies": {
-    "consola": "^1.2.0"
+    "consola": "^1.4.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^6.1.3",
