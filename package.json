@@ -48,9 +48,6 @@
   "jest": {
     "testEnvironment": "node",
     "collectCoverage": true,
-    "collectCoverageFrom": [
-      "**/lib/**"
-    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/test/fixture"
