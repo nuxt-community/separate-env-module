@@ -18,6 +18,7 @@
 ## Setup
 
 - Add `@nuxtjs/separate-env` dependency to your project using yarn or npm
+- Add to `nuxt.config.js` modules - `modules: ["@nuxtjs/separate-env"]`
 
 ## Configuration
 
