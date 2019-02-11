@@ -6,7 +6,9 @@ module.exports = {
   render: {
     resourceHints: false
   },
-  modules: ['@@'],
+  modules: [
+    { handler: require('../../../') }
+  ],
   env: {
     server: () => ({
       ONLY_SERVER: 'yup',

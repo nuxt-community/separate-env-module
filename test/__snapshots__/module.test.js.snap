@@ -2,13 +2,13 @@
 
 exports[`csr only client-side variables are available 1`] = `
 "
-    <div id=\\"__nuxt\\"><div class=\\"nuxt-progress\\" style=\\"width: 0%; height: 2px; background-color: black; opacity: 0;\\"></div><div id=\\"__layout\\"><div id=\\"result\\" class=\\"appear appear-active\\"><h1>client</h1> <pre>{
+    <div id=\\"__nuxt\\"><!----><div id=\\"__layout\\"><div id=\\"result\\" class=\\"appear appear-active\\"><h1>client</h1> <pre>{
   \\"ONLY_CLIENT\\": \\"okay\\",
   \\"ONLY_SERVER\\": \\"undefined\\",
   \\"DIFFERENT\\": \\"client\\",
   \\"normal\\": \\"Hi\\"
 }</pre></div></div></div>
-  <script type=\\"text/javascript\\" src=\\"/_nuxt/runtime.js\\"></script><script type=\\"text/javascript\\" src=\\"/_nuxt/commons.app.js\\"></script><script type=\\"text/javascript\\" src=\\"/_nuxt/vendors.app.js\\"></script><script type=\\"text/javascript\\" src=\\"/_nuxt/app.js\\"></script>
+  <script type=\\"text/javascript\\" src=\\"/_nuxt/a2d7676f268f97a5849d.js\\"></script><script type=\\"text/javascript\\" src=\\"/_nuxt/4da1fe42920b03139f11.js\\"></script><script type=\\"text/javascript\\" src=\\"/_nuxt/2f8b13cff2a9b0ce4713.js\\"></script>
 
 "
 `;
@@ -16,29 +16,11 @@ exports[`csr only client-side variables are available 1`] = `
 exports[`ssr correctly assign env variables from function 1`] = `
 "<!doctype html>
 <html data-n-head-ssr data-n-head=\\"\\">
-  <head>
-    <title data-n-head=\\"true\\"></title><style data-vue-ssr-id=\\"fd547dac:0\\">
-.nuxt-progress {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  height: 2px;
-  width: 0%;
-  transition: width 0.2s, opacity 0.4s;
-  opacity: 1;
-  background-color: #efc14e;
-  z-index: 999999;
-}
-</style>
+  <head data-n-head=\\"\\">
+    <title data-n-head=\\"true\\"></title><style data-vue-ssr-id=\\"17cfdfa9:0\\">.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;transition:width .1s,opacity .4s;background-color:#000;z-index:999999}.nuxt-progress.nuxt-progress-notransition{transition:none}.nuxt-progress-failed{background-color:red}</style>
   </head>
   <body data-n-head=\\"\\">
-    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><div class=\\"nuxt-progress\\" style=\\"width:0%;height:2px;background-color:black;opacity:0;\\"></div><div id=\\"__layout\\"><div id=\\"result\\"><h1>server</h1> <pre>{
-  &quot;ONLY_CLIENT&quot;: &quot;undefined&quot;,
-  &quot;ONLY_SERVER&quot;: &quot;yup&quot;,
-  &quot;DIFFERENT&quot;: &quot;server&quot;,
-  &quot;normal&quot;: &quot;Hi&quot;
-}</pre></div></div></div><script>window.__NUXT__=(function(a){return {layout:\\"default\\",data:[{type:a,env:{ONLY_CLIENT:\\"undefined\\",ONLY_SERVER:\\"yup\\",DIFFERENT:a,normal:\\"Hi\\"}}],error:null,serverRendered:true}}(\\"server\\"));</script><script src=\\"/_nuxt/runtime.js\\" defer></script><script src=\\"/_nuxt/pages/index.js\\" defer></script><script src=\\"/_nuxt/commons.app.js\\" defer></script><script src=\\"/_nuxt/vendors.app.js\\" defer></script><script src=\\"/_nuxt/app.js\\" defer></script>
+    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><!----><div id=\\"__layout\\"><div id=\\"result\\"><h1>server</h1> <pre>[object Object]</pre></div></div></div><script>window.__NUXT__=(function(a){return {layout:\\"default\\",data:[{type:a,env:{ONLY_CLIENT:\\"undefined\\",ONLY_SERVER:\\"yup\\",DIFFERENT:a,normal:\\"Hi\\"}}],error:null,serverRendered:true}}(\\"server\\"));</script><script src=\\"/_nuxt/a2d7676f268f97a5849d.js\\" defer></script><script src=\\"/_nuxt/09889b896148317daca4.js\\" defer></script><script src=\\"/_nuxt/4da1fe42920b03139f11.js\\" defer></script><script src=\\"/_nuxt/feff3e7c475df22ce118.js\\" defer></script>
   </body>
 </html>
 "
@@ -47,29 +29,11 @@ exports[`ssr correctly assign env variables from function 1`] = `
 exports[`ssr honor custom build.extend function 1`] = `
 "<!doctype html>
 <html data-n-head-ssr data-n-head=\\"\\">
-  <head>
-    <title data-n-head=\\"true\\"></title><style data-vue-ssr-id=\\"fd547dac:0\\">
-.nuxt-progress {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  height: 2px;
-  width: 0%;
-  transition: width 0.2s, opacity 0.4s;
-  opacity: 1;
-  background-color: #efc14e;
-  z-index: 999999;
-}
-</style>
+  <head data-n-head=\\"\\">
+    <title data-n-head=\\"true\\"></title><style data-vue-ssr-id=\\"17cfdfa9:0\\">.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;transition:width .1s,opacity .4s;background-color:#000;z-index:999999}.nuxt-progress.nuxt-progress-notransition{transition:none}.nuxt-progress-failed{background-color:red}</style>
   </head>
   <body data-n-head=\\"\\">
-    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><div class=\\"nuxt-progress\\" style=\\"width:0%;height:2px;background-color:black;opacity:0;\\"></div><div id=\\"__layout\\"><div id=\\"result\\"><h1>server</h1> <pre>{
-  &quot;ONLY_CLIENT&quot;: &quot;undefined&quot;,
-  &quot;ONLY_SERVER&quot;: &quot;nope&quot;,
-  &quot;DIFFERENT&quot;: &quot;server&quot;,
-  &quot;normal&quot;: &quot;Hi&quot;
-}</pre></div></div></div><script>window.__NUXT__=(function(a){return {layout:\\"default\\",data:[{type:a,env:{ONLY_CLIENT:\\"undefined\\",ONLY_SERVER:\\"nope\\",DIFFERENT:a,normal:\\"Hi\\"}}],error:null,serverRendered:true}}(\\"server\\"));</script><script src=\\"/_nuxt/runtime.js\\" defer></script><script src=\\"/_nuxt/pages/index.js\\" defer></script><script src=\\"/_nuxt/commons.app.js\\" defer></script><script src=\\"/_nuxt/vendors.app.js\\" defer></script><script src=\\"/_nuxt/app.js\\" defer></script>
+    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><!----><div id=\\"__layout\\"><div id=\\"result\\"><h1>server</h1> <pre>[object Object]</pre></div></div></div><script>window.__NUXT__=(function(a){return {layout:\\"default\\",data:[{type:a,env:{ONLY_CLIENT:\\"undefined\\",ONLY_SERVER:\\"nope\\",DIFFERENT:a,normal:\\"Hi\\"}}],error:null,serverRendered:true}}(\\"server\\"));</script><script src=\\"/_nuxt/d5627934419cc058d807.js\\" defer></script><script src=\\"/_nuxt/a087f459dac404426037.js\\" defer></script><script src=\\"/_nuxt/4da1fe42920b03139f11.js\\" defer></script><script src=\\"/_nuxt/cb833eab17a10c38ef9d.js\\" defer></script>
   </body>
 </html>
 "
@@ -78,29 +42,11 @@ exports[`ssr honor custom build.extend function 1`] = `
 exports[`ssr server variables only accessible on server-bundle 1`] = `
 "<!doctype html>
 <html data-n-head-ssr data-n-head=\\"\\">
-  <head>
-    <title data-n-head=\\"true\\"></title><style data-vue-ssr-id=\\"fd547dac:0\\">
-.nuxt-progress {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  height: 2px;
-  width: 0%;
-  transition: width 0.2s, opacity 0.4s;
-  opacity: 1;
-  background-color: #efc14e;
-  z-index: 999999;
-}
-</style>
+  <head data-n-head=\\"\\">
+    <title data-n-head=\\"true\\"></title><style data-vue-ssr-id=\\"17cfdfa9:0\\">.nuxt-progress{position:fixed;top:0;left:0;right:0;height:2px;width:0;opacity:1;transition:width .1s,opacity .4s;background-color:#000;z-index:999999}.nuxt-progress.nuxt-progress-notransition{transition:none}.nuxt-progress-failed{background-color:red}</style>
   </head>
   <body data-n-head=\\"\\">
-    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><div class=\\"nuxt-progress\\" style=\\"width:0%;height:2px;background-color:black;opacity:0;\\"></div><div id=\\"__layout\\"><div id=\\"result\\"><h1>server</h1> <pre>{
-  &quot;ONLY_CLIENT&quot;: &quot;undefined&quot;,
-  &quot;ONLY_SERVER&quot;: &quot;yup&quot;,
-  &quot;DIFFERENT&quot;: &quot;server&quot;,
-  &quot;normal&quot;: &quot;Hi&quot;
-}</pre></div></div></div><script>window.__NUXT__=(function(a){return {layout:\\"default\\",data:[{type:a,env:{ONLY_CLIENT:\\"undefined\\",ONLY_SERVER:\\"yup\\",DIFFERENT:a,normal:\\"Hi\\"}}],error:null,serverRendered:true}}(\\"server\\"));</script><script src=\\"/_nuxt/runtime.js\\" defer></script><script src=\\"/_nuxt/pages/index.js\\" defer></script><script src=\\"/_nuxt/commons.app.js\\" defer></script><script src=\\"/_nuxt/vendors.app.js\\" defer></script><script src=\\"/_nuxt/app.js\\" defer></script>
+    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><!----><div id=\\"__layout\\"><div id=\\"result\\"><h1>server</h1> <pre>[object Object]</pre></div></div></div><script>window.__NUXT__=(function(a){return {layout:\\"default\\",data:[{type:a,env:{ONLY_CLIENT:\\"undefined\\",ONLY_SERVER:\\"yup\\",DIFFERENT:a,normal:\\"Hi\\"}}],error:null,serverRendered:true}}(\\"server\\"));</script><script src=\\"/_nuxt/a2d7676f268f97a5849d.js\\" defer></script><script src=\\"/_nuxt/09889b896148317daca4.js\\" defer></script><script src=\\"/_nuxt/4da1fe42920b03139f11.js\\" defer></script><script src=\\"/_nuxt/feff3e7c475df22ce118.js\\" defer></script>
   </body>
 </html>
 "
