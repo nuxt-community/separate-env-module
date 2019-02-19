@@ -1,8 +1,10 @@
 <template>
   <div id="result">
     <h1>{{ type }}</h1>
-    <pre>{{ env }}</pre>
-    <nuxt-link to="/">Index</nuxt-link>
+    <pre>{{ JSON.stringify(env) }}</pre>
+    <nuxt-link to="/">
+      Index
+    </nuxt-link>
   </div>
 </template>
 
