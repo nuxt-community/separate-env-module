@@ -20,7 +20,6 @@
 ```js
 {
   modules: [
-    // Simple usage
     '@nuxtjs/separate-env',
  ],
  env: [
@@ -57,12 +56,6 @@ That's it! You are good to go.
 
 **IMPORTANT:** Be aware that `server-side` includes every first render of your application.
 Your secret tokens won't be included anywhere **except you use them **
-
-## Development
-
-- Clone this repository
-- Install dependencies using `yarn install` or `npm install`
-- Start development server using `npm run dev`
 
 ## License
 
