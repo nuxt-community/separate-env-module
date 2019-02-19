@@ -1,7 +1,7 @@
 {
   "name": "@nuxtjs/separate-env",
   "version": "0.0.1",
-  "description": "Separated environment variables for `server` and `client` build",
+  "description": "Separated environment variables for server and client builds",
   "keywords": [
     "nuxtjs",
     "nuxt",
