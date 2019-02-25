@@ -1,7 +1,7 @@
 <template>
   <div id="result">
     <h1>{{ type }}</h1>
-    <pre>{{ env }}</pre>
+    <pre>{{ JSON.stringify(env) }}</pre>
   </div>
 </template>
 
@@ -15,7 +15,8 @@ export default {
       ONLY_CLIENT: process.env.ONLY_CLIENT || 'undefined',
       ONLY_SERVER: process.env.ONLY_SERVER || 'undefined',
       DIFFERENT: process.env.DIFFERENT || 'undefined',
-      normal: process.env.normal || 'undefined'
+      normal: process.env.normal || 'undefined',
+      number: process.env.number || 'undefined'
     }
     return { type, env }
   }
