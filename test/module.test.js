@@ -1,10 +1,14 @@
 jest.setTimeout(60000)
 
 const { Nuxt, Builder } = require('nuxt-edge')
-const consola = require('consola')
+const logger = require('@/logger')
 const getPort = require('get-port')
 
+const config = require('./fixture/nuxt.config')
+
 let nuxt, port
+
+logger.mockTypes(() => jest.fn())
 
 const url = path => `http://localhost:${port}${path}`
 
@@ -18,71 +22,98 @@ const setupNuxt = async (config) => {
   return nuxt
 }
 
-const renderSpaRoute = async (nuxt, _url) => {
-  const window = await nuxt.renderAndGetWindow(url(_url))
-  const head = window.document.head.innerHTML
-  const html = window.document.body.innerHTML
-  return { window, head, html }
-}
+describe('module', () => {
+  afterEach(async () => {
+    if (nuxt) {
+      await nuxt.close()
+    }
+  })
 
-describe('csr', () => {
-  test('only client-side variables are available', async () => {
-    nuxt = await setupNuxt(require('./fixture/configs/csr'))
-    const { html } = await renderSpaRoute(nuxt, '/')
+  test('spa', async () => {
+    nuxt = await setupNuxt(require('./fixture/nuxt.config.spa'))
+    const window = await nuxt.renderAndGetWindow(url('/'))
+    const html = window.document.body.innerHTML
     expect(html).toMatchSnapshot()
   })
 
-  afterEach(async () => {
-    if (nuxt) {
-      await nuxt.close()
-    }
-  })
-})
-
-describe('no object', () => {
-  let log
-
-  beforeEach(() => {
-    log = jest.fn()
-    consola.clear().add({ log })
-  })
-
-  test('error when no object is provided', async () => {
-    nuxt = await setupNuxt(require('./fixture/configs/no-object'))
-    const expectedMessage = 'Could not assign server env variables. Please provide an object or a function that returns an object!'
-    const consolaMessages = log.mock.calls.map(c => c[0].message)
-    expect(consolaMessages).toContain(expectedMessage)
-  })
-
-  afterEach(async () => {
-    if (nuxt) {
-      await nuxt.close()
-    }
-  })
-})
-
-describe('ssr', () => {
-  test('correctly assign env variables from function', async () => {
-    const nuxt = await setupNuxt(require('./fixture/configs/ssr-with-function'))
+  test('ssr', async () => {
+    nuxt = await setupNuxt(config)
     const { html } = await nuxt.renderRoute('/')
     expect(html).toMatchSnapshot()
   })
 
-  test('server variables only accessible on server-bundle', async () => {
-    nuxt = await setupNuxt(require('./fixture/configs/ssr'))
+  test('correctly assign env variables from function', async () => {
+    nuxt = await setupNuxt({
+      ...config,
+      ...{
+        env: {
+          server: () => ({
+            ONLY_SERVER: 'yup',
+            DIFFERENT: 'server',
+            SECRET: 'nowhereIncluded'
+          }),
+          client: {
+            ONLY_CLIENT: 'okay',
+            DIFFERENT: 'client'
+          },
+          normal: 'Hi'
+        }
+      }
+    })
     const { html } = await nuxt.renderRoute('/')
     expect(html).toMatchSnapshot()
   })
 
   test('honor custom build.extend function', async () => {
-    nuxt = await setupNuxt(require('./fixture/configs/ssr-with-extend'))
+    nuxt = await setupNuxt({
+      ...config,
+      ...{
+        env: {
+          server: {
+            ONLY_SERVER: 'yup',
+            DIFFERENT: 'server'
+          },
+          client: {
+            ONLY_CLIENT: 'okay',
+            DIFFERENT: 'client'
+          },
+          normal: 'Hi'
+        },
+        build: {
+          extend(config) {
+            const DefinePlugin = config.plugins.find(p => p.constructor.name === 'DefinePlugin')
+            Object.assign(DefinePlugin.definitions, { 'process.env.ONLY_SERVER': JSON.stringify('nope') })
+          }
+        }
+      }
+    })
     const { html } = await nuxt.renderRoute('/')
     expect(html).toMatchSnapshot()
   })
 
-  afterEach(async () => {
-    if (nuxt) {
-      await nuxt.close()
-    }
+  test('no definitions', async () => {
+    nuxt = await setupNuxt({
+      ...config,
+      ...{
+        env: {}
+      }
+    })
+    const { html } = await nuxt.renderRoute('/')
+    expect(html).toMatchSnapshot()
+  })
+
+  test('no object', async () => {
+    nuxt = await setupNuxt({
+      ...config,
+      ...{
+        env: {
+          server: 'no object',
+          client: 'no object',
+          normal: 'Hi'
+        }
+      }
+    })
+    expect(logger.error).toHaveBeenNthCalledWith(1, 'Could not assign client env variables. Please provide an object or a function that returns an object!')
+    expect(logger.error).toHaveBeenNthCalledWith(2, 'Could not assign server env variables. Please provide an object or a function that returns an object!')
   })
 })
