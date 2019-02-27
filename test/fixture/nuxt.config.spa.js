@@ -2,23 +2,26 @@ const { resolve } = require('path')
 
 module.exports = {
   mode: 'spa',
-  rootDir: resolve(__dirname, '../../..'),
-  buildDir: resolve(__dirname, '../.nuxt'),
-  srcDir: resolve(__dirname, '..'),
+  rootDir: resolve(__dirname, '../..'),
+  buildDir: resolve(__dirname, '.nuxt'),
+  srcDir: __dirname,
   render: {
     resourceHints: false
   },
   modules: [
-    { handler: require('../../../') }
+    { handler: require('../../') }
   ],
   env: {
     server: {
       ONLY_SERVER: 'yup',
-      DIFFERENT: 'server'
+      DIFFERENT: 'server',
+      SECRET: 'nowhereIncluded',
+      TYPE: true
     },
     client: {
       ONLY_CLIENT: 'okay',
-      DIFFERENT: 'client'
+      DIFFERENT: 'client',
+      TYPE: 10
     },
     normal: 'Hi'
   }
