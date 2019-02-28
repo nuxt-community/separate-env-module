@@ -70,6 +70,7 @@ describe('module', () => {
       ...{
         env: {
           server: {
+            ONLY_SERVER: 'yup',
             DIFFERENT: 'server'
           },
           client: {
