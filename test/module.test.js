@@ -64,6 +64,32 @@ describe('module', () => {
     expect(html).toMatchSnapshot()
   })
 
+  test('honor custom build.extend function', async () => {
+    nuxt = await setupNuxt({
+      ...config,
+      ...{
+        env: {
+          server: {
+            DIFFERENT: 'server'
+          },
+          client: {
+            ONLY_CLIENT: 'okay',
+            DIFFERENT: 'client'
+          },
+          normal: 'Hi'
+        },
+        build: {
+          extend(config) {
+            const DefinePlugin = config.plugins.find(p => p.constructor.name === 'DefinePlugin')
+            Object.assign(DefinePlugin.definitions, { 'process.env.ONLY_SERVER': JSON.stringify('nope') })
+          }
+        }
+      }
+    })
+    const { html } = await nuxt.renderRoute('/')
+    expect(html).toMatchSnapshot()
+  })
+
   test('no definitions', async () => {
     nuxt = await setupNuxt({
       ...config,
