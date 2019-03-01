@@ -1,8 +1,8 @@
 jest.setTimeout(60000)
 
 const { Nuxt, Builder } = require('nuxt-edge')
-const logger = require('@/logger')
 const getPort = require('get-port')
+const logger = require('@/logger')
 
 const config = require('./fixture/nuxt.config')
 
@@ -23,6 +23,10 @@ const setupNuxt = async (config) => {
 }
 
 describe('module', () => {
+  beforeEach(() => {
+    logger.clear()
+  })
+
   afterEach(async () => {
     if (nuxt) {
       await nuxt.close()
