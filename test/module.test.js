@@ -35,6 +35,7 @@ describe('module', () => {
 
   test('spa', async () => {
     nuxt = await setupNuxt(require('./fixture/nuxt.config.spa'))
+
     const window = await nuxt.renderAndGetWindow(url('/'))
     const html = window.document.body.innerHTML
     expect(html).toMatchSnapshot()
@@ -42,6 +43,7 @@ describe('module', () => {
 
   test('ssr', async () => {
     nuxt = await setupNuxt(config)
+
     const { html } = await nuxt.renderRoute('/')
     expect(html).toMatchSnapshot()
   })
@@ -64,6 +66,7 @@ describe('module', () => {
         }
       }
     })
+
     const { html } = await nuxt.renderRoute('/')
     expect(html).toMatchSnapshot()
   })
@@ -91,6 +94,7 @@ describe('module', () => {
         }
       }
     })
+
     const { html } = await nuxt.renderRoute('/')
     expect(html).toMatchSnapshot()
   })
@@ -102,6 +106,7 @@ describe('module', () => {
         env: {}
       }
     })
+
     const { html } = await nuxt.renderRoute('/')
     expect(html).toMatchSnapshot()
   })
@@ -117,6 +122,7 @@ describe('module', () => {
         }
       }
     })
+
     expect(logger.error).toHaveBeenNthCalledWith(1, 'Could not assign client env variables. Please provide an object or a function that returns an object!')
     expect(logger.error).toHaveBeenNthCalledWith(2, 'Could not assign server env variables. Please provide an object or a function that returns an object!')
   })
