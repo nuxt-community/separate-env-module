@@ -51,19 +51,17 @@ describe('module', () => {
   test('correctly assign env variables from function', async () => {
     nuxt = await setupNuxt({
       ...config,
-      ...{
-        env: {
-          server: () => ({
-            ONLY_SERVER: 'yup',
-            DIFFERENT: 'server',
-            SECRET: 'nowhereIncluded'
-          }),
-          client: {
-            ONLY_CLIENT: 'okay',
-            DIFFERENT: 'client'
-          },
-          normal: 'Hi'
-        }
+      env: {
+        server: () => ({
+          ONLY_SERVER: 'yup',
+          DIFFERENT: 'server',
+          SECRET: 'nowhereIncluded'
+        }),
+        client: {
+          ONLY_CLIENT: 'okay',
+          DIFFERENT: 'client'
+        },
+        normal: 'Hi'
       }
     })
 
@@ -74,23 +72,21 @@ describe('module', () => {
   test('honor custom build.extend function', async () => {
     nuxt = await setupNuxt({
       ...config,
-      ...{
-        env: {
-          server: {
-            ONLY_SERVER: 'yup',
-            DIFFERENT: 'server'
-          },
-          client: {
-            ONLY_CLIENT: 'okay',
-            DIFFERENT: 'client'
-          },
-          normal: 'Hi'
+      env: {
+        server: {
+          ONLY_SERVER: 'yup',
+          DIFFERENT: 'server'
         },
-        build: {
-          extend(config) {
-            const DefinePlugin = config.plugins.find(p => p.constructor.name === 'DefinePlugin')
-            Object.assign(DefinePlugin.definitions, { 'process.env.ONLY_SERVER': JSON.stringify('nope') })
-          }
+        client: {
+          ONLY_CLIENT: 'okay',
+          DIFFERENT: 'client'
+        },
+        normal: 'Hi'
+      },
+      build: {
+        extend(config) {
+          const DefinePlugin = config.plugins.find(p => p.constructor.name === 'DefinePlugin')
+          Object.assign(DefinePlugin.definitions, { 'process.env.ONLY_SERVER': JSON.stringify('nope') })
         }
       }
     })
@@ -102,9 +98,7 @@ describe('module', () => {
   test('no definitions', async () => {
     nuxt = await setupNuxt({
       ...config,
-      ...{
-        env: {}
-      }
+      env: {}
     })
 
     const { html } = await nuxt.renderRoute('/')
@@ -114,12 +108,10 @@ describe('module', () => {
   test('no object', async () => {
     nuxt = await setupNuxt({
       ...config,
-      ...{
-        env: {
-          server: 'no object',
-          client: 'no object',
-          normal: 'Hi'
-        }
+      env: {
+        server: 'no object',
+        client: 'no object',
+        normal: 'Hi'
       }
     })
 
