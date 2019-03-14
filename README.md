@@ -22,9 +22,9 @@
   modules: [
     '@nuxtjs/separate-env'
   ],
-  env: [
-    // Your environment variables here
-  ]
+  env: {
+    // Your environment variables here (see Configuration section below)
+  }
 }
 ```
 
@@ -54,8 +54,8 @@ That's it! You are good to go.
 
 ## Caveats
 
-**IMPORTANT:** Be aware that `server-side` includes every first render of your application.
-Your secret tokens won't be included anywhere **except you use them **
+**IMPORTANT:** Be aware that `server` is included on the first render of your application.
+Your secret tokens won't be included anywhere **except where you use them **
 
 ## Development
 
