@@ -55,7 +55,7 @@ That's it! You are good to go.
 ## Caveats
 
 **IMPORTANT:** Be aware that `server-side` means on **every** first render of your application.
-Your secret tokens won't be included anywhere **except where you use them **
+Your secret tokens won't be included anywhere **except where you use them**
 
 ## Development
 
