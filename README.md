@@ -4,8 +4,7 @@
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![Circle CI][circle-ci-src]][circle-ci-href]
 [![Codecov][codecov-src]][codecov-href]
-[![Dependencies][david-dm-src]][david-dm-href]
-[![Standard JS][standard-js-src]][standard-js-href]
+[![License][license-src]][license-href]
 
 > Separated environment variables for `server` and `client` build
 
@@ -13,9 +12,13 @@
 
 ## Setup
 
-1. Add the `@nuxtjs/separate-env` dependency with `yarn` or `npm` to your project
-2. Add `@nuxtjs/separate-env` to the `modules` section of `nuxt.config.js`:
-3. Configure it:
+1. Add `@nuxtjs/separate-env` dependency to your project
+
+```bash
+yarn add @nuxtjs/separate-env # or npm install @nuxtjs/separate-env
+```
+
+2. Add `@nuxtjs/separate-env` to the `modules` section of `nuxt.config.js`
 
 ```js
 {
@@ -67,18 +70,20 @@ Your secret tokens won't be included anywhere **except where you use them**
 
 [MIT License](./LICENSE)
 
-Copyright (c) Alexander Lichter
+Copyright (c) - Nuxt Community
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/dt/@nuxtjs/separate-env.svg?style=flat-square
+[npm-version-src]: https://img.shields.io/npm/v/@nuxtjs/separate-env/latest.svg?style=flat-square
 [npm-version-href]: https://npmjs.com/package/@nuxtjs/separate-env
-[npm-downloads-src]: https://img.shields.io/npm/v/@nuxtjs/separate-env/latest.svg?style=flat-square
+
+[npm-downloads-src]: https://img.shields.io/npm/dt/@nuxtjs/separate-env.svg?style=flat-square
 [npm-downloads-href]: https://npmjs.com/package/@nuxtjs/separate-env
+
 [circle-ci-src]: https://img.shields.io/circleci/project/github/nuxt-community/separate-env-module.svg?style=flat-square
 [circle-ci-href]: https://circleci.com/gh/nuxt-community/separate-env-module
+
 [codecov-src]: https://img.shields.io/codecov/c/github/nuxt-community/separate-env-module.svg?style=flat-square
 [codecov-href]: https://codecov.io/gh/nuxt-community/separate-env-module
-[david-dm-src]: https://david-dm.org/nuxt-community/separate-env-module/status.svg?style=flat-square
-[david-dm-href]: https://david-dm.org/nuxt-community/separate-env-module
-[standard-js-src]: https://img.shields.io/badge/code_style-standard-brightgreen.svg?style=flat-square
-[standard-js-href]: https://standardjs.com
+
+[license-src]: https://img.shields.io/npm/l/@nuxtjs/separate-env.svg?style=flat-square
+[license-href]: https://npmjs.com/package/@nuxtjs/separate-env

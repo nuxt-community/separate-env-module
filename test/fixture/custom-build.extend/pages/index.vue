@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  asyncData() {
+  asyncData () {
     const type = process.client ? 'client' : 'server'
     const env = {
       ONLY_CLIENT: process.env.ONLY_CLIENT || 'undefined',
