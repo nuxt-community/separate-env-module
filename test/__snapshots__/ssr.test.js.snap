@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ssr render 1`] = `
+"<!doctype html>
+<html data-n-head-ssr >
+  <head >
+    <style data-vue-ssr-id=\\"0d976f99:0\\">
+.nuxt-progress {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  height: 2px;
+  width: 0%;
+  opacity: 1;
+  transition: width 0.1s, opacity 0.4s;
+  background-color: black;
+  z-index: 999999;
+}
+.nuxt-progress.nuxt-progress-notransition {
+  transition: none;
+}
+.nuxt-progress-failed {
+  background-color: red;
+}
+</style>
+  </head>
+  <body >
+    <div data-server-rendered=\\"true\\" id=\\"__nuxt\\"><!----><div id=\\"__layout\\"><div id=\\"result\\"><h1>server</h1> <pre>{&quot;ONLY_CLIENT&quot;:&quot;undefined&quot;,&quot;ONLY_SERVER&quot;:&quot;yup&quot;,&quot;DIFFERENT&quot;:&quot;server&quot;,&quot;TYPE&quot;:true,&quot;normal&quot;:&quot;Hi&quot;}</pre></div></div></div><script>window.__NUXT__=(function(a,b){return {layout:\\"default\\",data:[{type:a,env:{ONLY_CLIENT:\\"undefined\\",ONLY_SERVER:\\"yup\\",DIFFERENT:a,TYPE:b,normal:\\"Hi\\"}}],error:null,serverRendered:b,logs:[]}}(\\"server\\",true));</script><script src=\\"/_nuxt/runtime.js\\" defer></script><script src=\\"/_nuxt/pages/index.js\\" defer></script><script src=\\"/_nuxt/commons.app.js\\" defer></script><script src=\\"/_nuxt/vendors.app.js\\" defer></script><script src=\\"/_nuxt/app.js\\" defer></script>
+  </body>
+</html>
+"
+`;
