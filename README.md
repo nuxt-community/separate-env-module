@@ -10,6 +10,8 @@
 
 [📖 **Release Notes**](./CHANGELOG.md)
 
+:warning: With Nuxt v2.13 you might want to  use the [new runtime config](https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config) instead of this.
+
 ## Setup
 
 1. Add `@nuxtjs/separate-env` dependency to your project
