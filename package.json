@@ -29,7 +29,7 @@
     "lib"
   ],
   "dependencies": {
-    "consola": "^2.15.0"
+    "consola": "^3.2.3"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
